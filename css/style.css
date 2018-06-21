@@ -82,7 +82,7 @@ body {
     letter-spacing: 35px;
 
     animation-name: moveInLeft;
-    animation-duration: 5s;
+    animation-duration: 1s;
     animation-timing-function: ease-in;
   
     /*
@@ -98,7 +98,7 @@ body {
     letter-spacing: 14px;
 
     animation-name: moveInRight;
-    animation-duration: 5s;
+    animation-duration: 1s;
     animation-timing-function: ease-in;
 }
 
@@ -136,6 +136,19 @@ body {
     }
 }
 
+
+@keyframes moveInBottom {
+    0%{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* make link and visited behave the same way*/
 .btn:link,
 .btn:visited {
@@ -145,6 +158,7 @@ body {
     display: inline-block;
     border-radius: 200px;
     transition: all 0.2s;
+    position: relative; /* it is for .btn::after postioin reference*/
 
     
     
@@ -163,4 +177,33 @@ body {
 .btn-white {
     background-color: #fff;
     color: #777;
+}
+
+.btn::after{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: -1; /*this means the ::after psudo elemeent is sit behined btn */
+    transition: all .4s;
+
+}
+
+.btn-white::after{
+    background-color: #fff;
+}
+
+.btn:hover::after{
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom .5s ease-out;
+    animation-delay: .75s;
+    animation-fill-mode: backwards; /* means that disable 0% property specified in moveInBottom before animation starts*/
 }
