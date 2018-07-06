@@ -42,17 +42,17 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
-.logo-box{
+.header__logo-box{
     position: absolute;
     top: 4rem;
     left: 4rem;
 }
 
-.logo{
+.header__logo{
     height: 3.5rem;
 }
 
-.logo-box:hover .logo{
+.header__logo-box:hover .header__logo{
     animation: moveInRight 2s ease-in;
     /*
     animation: moveInLeft;
@@ -61,7 +61,7 @@ body {
     */
 }
 
-.text-box{
+.header__text-box{
     position: absolute;
     top: 40%;
     left: 50%;
@@ -79,12 +79,12 @@ body {
 }
 
 
-.heading-primary:hover .heading-primary-main{
+.heading-primary:hover .heading-primary--main{
     animation: moveInRight 2s ease-in;
 }
 
-.heading-primary-main{
-    display: block;
+.heading-primary--main{
+    display: inline-block;
     font-size: 6rem;
     font-weight: 400;
     letter-spacing: 3.5rem;
@@ -99,8 +99,8 @@ body {
     */
 }
 
-.heading-primary-sub{
-    display: block;
+.heading-primary--sub{
+    display: inline-block;
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: 1.4rem;
@@ -163,7 +163,7 @@ body {
     text-transform: uppercase;
     text-decoration: none;
     padding: 1.5rem 4rem;
-    display: inline-block;
+    display: inline;
     border-radius: 20rem;
     transition: all 0.2s;
     position: relative; /* it is for .btn::after postioin reference*/
@@ -182,7 +182,7 @@ body {
     box-shadow: 0 1rem 1rem rgba(0, 0, 0, .2);    
 }
 
-.btn-white {
+.btn---white {
     background-color: #fff;
     color: #777;
 }
@@ -201,7 +201,7 @@ body {
 
 }
 
-.btn-white::after{
+.btn--white::after{
     background-color: #fff;
 }
 
@@ -210,7 +210,7 @@ body {
     opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
     animation: moveInBottom .5s ease-out;
     animation-delay: .75s;
     animation-fill-mode: backwards; /* means that disable 0% property specified in moveInBottom before animation starts*/
