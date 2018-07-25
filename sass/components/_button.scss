@@ -1,0 +1,59 @@
+@import "../abstracts/variables";
+.btn {
+
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline;
+        border-radius: 20rem;
+        transition: all 0.2s;
+        position: relative; /* it is for .btn::after postioin reference*/   
+    
+    }
+
+    &:hover {
+        transform: translateY(-.3rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, .2);
+
+        &::after{
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active {
+        transform: translateY(-.1rem);
+        box-shadow: 0 1rem 1rem rgba($color-black, .2);    
+    }
+
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after{
+            background-color: $color-white;
+        }
+    }
+
+    &::after{
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top:0;
+        left: 0;
+        z-index: -1; /*this means the ::after psudo elemeent is sit behined btn */
+        transition: all .4s;
+    }
+
+
+    &--animated {
+        animation: moveInBottom .5s ease-out;
+        animation-delay: .75s;
+        animation-fill-mode: backwards; /* means that disable 0% property specified in moveInBottom before animation starts*/
+    }
+}
